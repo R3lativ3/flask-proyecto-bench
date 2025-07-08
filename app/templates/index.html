@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Proyecto Bench{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4 fw-bold text-primary">¡Hola Mundo!</h1>
+            <p class="lead">Bienvenido al sistema de gestión de proyectos y asignaciones Bench.</p>
+            <p class="text-muted">Este es un proyecto Flask desarrollado para gestionar desarrolladores core y bench en diferentes proyectos.</p>
+            <a href="{{ url_for('proyectos_lista') }}" class="btn btn-primary btn-lg me-3">Ver Proyectos</a>
+            <a href="{{ url_for('usuarios_lista') }}" class="btn btn-outline-primary btn-lg">Ver Usuarios</a>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h5 class="card-title">Estado del Sistema</h5>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="metric">
+                                <h3 class="text-primary">{{ proyectos|length }}</h3>
+                                <small class="text-muted">Proyectos</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric">
+                                <h3 class="text-success">5</h3>
+                                <small class="text-muted">Activos</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric">
+                                <h3 class="text-warning">2</h3>
+                                <small class="text-muted">En Bench</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h2 class="mb-4">Proyectos Recientes</h2>
+        <div class="row">
+            {% for proyecto in proyectos %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 hover-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ proyecto.nombre }}</h5>
+                        <p class="card-text">{{ proyecto.descripcion }}</p>
+                        <a href="{{ url_for('proyecto_detalle', proyecto_id=proyecto.id) }}" class="btn btn-outline-primary">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="feature-box">
+            <h3>🎯 Gestión de Proyectos</h3>
+            <p>Administra proyectos, asigna desarrolladores core y gestiona el bench de forma eficiente.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="feature-box">
+            <h3>👥 Asignaciones Dinámicas</h3>
+            <p>Solicita refuerzos, gestiona días libres y mantén la continuidad en todos los proyectos.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

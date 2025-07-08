@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Proyectos - Proyecto Bench{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h2">Gestión de Proyectos</h1>
+    <a href="#" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Nuevo Proyecto
+    </a>
+</div>
+
+<div class="row">
+    {% for proyecto in proyectos %}
+    <div class="col-md-4 mb-4">
+        <div class="card hover-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <h5 class="card-title">{{ proyecto.nombre }}</h5>
+                    <span class="badge status-core">Activo</span>
+                </div>
+                <p class="card-text">{{ proyecto.descripcion }}</p>
+                <div class="mb-3">
+                    <small class="text-muted">Core Developer:</small>
+                    <div class="d-flex align-items-center mt-1">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white me-2" style="width: 30px; height: 30px;">
+                            <small>JP</small>
+                        </div>
+                        <span>Juan Pérez</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('proyecto_detalle', proyecto_id=proyecto.id) }}" class="btn btn-outline-primary btn-sm">Ver Detalles</a>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-outline-secondary btn-sm">Editar</button>
+                        <button class="btn btn-outline-danger btn-sm">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="mt-5">
+    <h3>Estadísticas de Proyectos</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="text-primary">{{ proyectos|length }}</h2>
+                    <p class="text-muted">Total Proyectos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="text-success">{{ proyectos|length }}</h2>
+                    <p class="text-muted">Activos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="text-warning">2</h2>
+                    <p class="text-muted">Necesitan Bench</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2 class="text-info">5</h2>
+                    <p class="text-muted">Desarrolladores</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

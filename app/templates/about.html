@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}Acerca de - Proyecto Bench{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>Acerca del Proyecto Bench</h1>
+        <p class="lead">Sistema de gestión de desarrolladores core y bench para proyectos.</p>
+        
+        <div class="mt-4">
+            <h3>¿Qué es el Proyecto Bench?</h3>
+            <p>
+                El Proyecto Bench es un sistema diseñado para gestionar de manera eficiente las asignaciones 
+                de desarrolladores en diferentes proyectos, permitiendo la rotación entre roles "Core" y "Bench" 
+                según las necesidades del negocio.
+            </p>
+        </div>
+        
+        <div class="mt-4">
+            <h3>Características Principales</h3>
+            <ul class="list-unstyled">
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    Gestión de proyectos y asignaciones
+                </li>
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    Sistema de solicitudes de bench y días libres
+                </li>
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    Calendario de asignaciones dinámico
+                </li>
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    Roles y permisos de usuario
+                </li>
+                <li class="mb-2">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    Dashboard con métricas en tiempo real
+                </li>
+            </ul>
+        </div>
+        
+        <div class="mt-4">
+            <h3>Tecnologías Utilizadas</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Backend</h5>
+                    <ul>
+                        <li>Python 3.9+</li>
+                        <li>Flask</li>
+                        <li>SQLAlchemy</li>
+                        <li>Flask-Login</li>
+                        <li>WTForms</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Frontend</h5>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>Bootstrap 5</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Jinja2 Templates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Información del Proyecto</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <strong>Versión:</strong>
+                    <span class="badge bg-primary">1.0.0</span>
+                </div>
+                <div class="mb-3">
+                    <strong>Estado:</strong>
+                    <span class="badge bg-success">Desarrollo</span>
+                </div>
+                <div class="mb-3">
+                    <strong>Licencia:</strong>
+                    <span class="text-muted">MIT</span>
+                </div>
+                <div class="mb-3">
+                    <strong>Desarrollado por:</strong>
+                    <div class="text-muted">Equipo de Desarrollo</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">Roadmap</h5>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-success"></div>
+                        <div class="timeline-content">
+                            <h6>Sprint 1</h6>
+                            <small class="text-muted">Bootstrap + BD</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-primary"></div>
+                        <div class="timeline-content">
+                            <h6>Sprint 2</h6>
+                            <small class="text-muted">Autenticación</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-warning"></div>
+                        <div class="timeline-content">
+                            <h6>Sprint 3</h6>
+                            <small class="text-muted">CRUD Proyectos</small>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-secondary"></div>
+                        <div class="timeline-content">
+                            <h6>Sprint 4</h6>
+                            <small class="text-muted">Calendario</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -25px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.timeline-content h6 {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+</style>
+{% endblock %}
