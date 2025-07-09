@@ -1,0 +1,70 @@
+{
+  "asignaciones": [
+    {
+      "id": 1,
+      "proyecto_id": 1,
+      "usuario_id": 1,
+      "tipo": "core",
+      "fecha_asignacion": "2024-02-01",
+      "fecha_fin": "2024-06-30",
+      "porcentaje_dedicacion": 80,
+      "activa": true,
+      "rol_proyecto": "Tech Lead"
+    },
+    {
+      "id": 2,
+      "proyecto_id": 1,
+      "usuario_id": 3,
+      "tipo": "core",
+      "fecha_asignacion": "2024-02-15",
+      "fecha_fin": "2024-06-30",
+      "porcentaje_dedicacion": 100,
+      "activa": true,
+      "rol_proyecto": "Mobile Developer"
+    },
+    {
+      "id": 3,
+      "proyecto_id": 1,
+      "usuario_id": 2,
+      "tipo": "bench",
+      "fecha_asignacion": "2024-03-01",
+      "fecha_fin": "2024-04-30",
+      "porcentaje_dedicacion": 40,
+      "activa": true,
+      "rol_proyecto": "Backend Support"
+    },
+    {
+      "id": 4,
+      "proyecto_id": 2,
+      "usuario_id": 4,
+      "tipo": "core",
+      "fecha_asignacion": "2024-01-15",
+      "fecha_fin": "2024-08-15",
+      "porcentaje_dedicacion": 90,
+      "activa": true,
+      "rol_proyecto": "Full Stack Lead"
+    },
+    {
+      "id": 5,
+      "proyecto_id": 2,
+      "usuario_id": 2,
+      "tipo": "bench",
+      "fecha_asignacion": "2024-02-01",
+      "fecha_fin": "2024-03-31",
+      "porcentaje_dedicacion": 60,
+      "activa": false,
+      "rol_proyecto": "Backend Developer"
+    },
+    {
+      "id": 6,
+      "proyecto_id": 2,
+      "usuario_id": 5,
+      "tipo": "bench",
+      "fecha_asignacion": "2024-01-20",
+      "fecha_fin": "2024-08-15",
+      "porcentaje_dedicacion": 50,
+      "activa": true,
+      "rol_proyecto": "UI/UX Designer"
+    }
+  ]
+}
