@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/josecipriano/Documents/devs/flask-proyecto-bench/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///Users/josecipriano/Documents/devs/flask-proyecto-bench/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="proyecto-bench---sistema-de-gesti%C3%B3n-de-desarrolladores">Proyecto Bench - Sistema de Gestión de Desarrolladores</h1>
+<p>Sistema Flask con <strong>base de datos JSON en memoria</strong> para gestionar desarrolladores core y bench en proyectos de desarrollo.</p>
+<h2 id="%F0%9F%8E%89-%C2%A1s%C3%BAper-simple">🎉 ¡Súper Simple!</h2>
+<p><strong>Sin MySQL, sin Docker, sin complicaciones.</strong> Solo Python + Flask = ¡Funciona en 2 minutos!</p>
+<h2 id="%F0%9F%92%A1-%C2%BFqu%C3%A9-es">💡 ¿Qué es?</h2>
+<p>Un sistema que permite:</p>
+<ul>
+<li>Asignar desarrolladores como <strong>&quot;Core&quot;</strong> (responsables principales) o <strong>&quot;Bench&quot;</strong> (soporte) en proyectos</li>
+<li>Solicitar días libres y refuerzos</li>
+<li>Visualizar calendario de asignaciones</li>
+<li>Gestionar usuarios y proyectos</li>
+<li><strong>Persistencia automática en archivos JSON</strong> - sin necesidad de base de datos externa</li>
+</ul>
+<h2 id="%E2%9C%A8-ventajas-de-la-versi%C3%B3n-json">✨ Ventajas de la versión JSON</h2>
+<ul>
+<li>🚀 <strong>Instalación instantánea</strong> - Sin instalaciones complejas</li>
+<li>👀 <strong>Debug fácil</strong> - Puedes ver y editar los datos directamente</li>
+<li>📱 <strong>100% portable</strong> - Lleva el proyecto a cualquier lado</li>
+<li>🔄 <strong>Versionable</strong> - Los archivos JSON se pueden versionar con Git</li>
+<li>📊 <strong>Ideal para prototipos</strong> y equipos pequeños (hasta 1000 registros)</li>
+</ul>
+<h2 id="%E2%9A%99%EF%B8%8F-requisitos-previos">⚙️ Requisitos previos</h2>
+<h3 id="%F0%9F%90%8D-python-%C2%A1solo-esto-necesitas">🐍 Python (¡Solo esto necesitas!)</h3>
+<h4 id="macos">macOS:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Opción 1: Homebrew (recomendado)</span>
+/bin/bash -c <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>"</span>
+brew install python
+
+<span class="hljs-comment"># Opción 2: Descargar desde https://python.org/downloads/</span>
+</div></code></pre>
+<p><strong>Verificar instalación:</strong></p>
+<pre class="hljs"><code><div>python3 --version
+<span class="hljs-comment"># o</span>
+python --version
+</div></code></pre>
+<p><strong>Verificar pip:</strong></p>
+<pre class="hljs"><code><div>pip3 --version
+<span class="hljs-comment"># o</span>
+pip --version
+</div></code></pre>
+<h4 id="windows">Windows:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Descargar desde https://python.org/downloads/</span>
+<span class="hljs-comment"># Durante la instalación, marcar "Add Python to PATH"</span>
+
+<span class="hljs-comment"># Verificar instalación</span>
+python -<span class="hljs-literal">-version</span>
+python <span class="hljs-literal">-m</span> pip -<span class="hljs-literal">-version</span>
+</div></code></pre>
+<h3 id="%F0%9F%94%A7-si-pip-no-funciona">🔧 Si pip no funciona</h3>
+<h4 id="macos">macOS:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Si pip3 no funciona, reinstalar</span>
+python3 -m ensurepip --upgrade
+
+<span class="hljs-comment"># O instalar manualmente</span>
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+
+<span class="hljs-comment"># En macOS, casi siempre es pip3, no pip</span>
+pip3 install flask
+</div></code></pre>
+<h4 id="windows">Windows:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Si pip no funciona, reinstalar</span>
+python <span class="hljs-literal">-m</span> ensurepip -<span class="hljs-literal">-upgrade</span>
+
+<span class="hljs-comment"># O instalar manualmente</span>
+curl https://bootstrap.pypa.io/<span class="hljs-built_in">get-pip</span>.py <span class="hljs-literal">-o</span> <span class="hljs-built_in">get-pip</span>.py
+python <span class="hljs-built_in">get-pip</span>.py
+</div></code></pre>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-instalaci%C3%B3n-s%C3%BAper-simple-3-pasos">🛠️ Instalación súper simple (3 pasos)</h2>
+<h3 id="1-%F0%9F%93%A5-obtener-el-proyecto">1. 📥 Obtener el proyecto</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Opción A: Clonar el repositorio</span>
+git <span class="hljs-built_in">clone</span> [URL_DEL_REPOSITORIO]
+<span class="hljs-built_in">cd</span> flask-proyecto-bench
+
+<span class="hljs-comment"># Opción B: Crear carpeta nueva</span>
+mkdir flask-proyecto-bench
+<span class="hljs-built_in">cd</span> flask-proyecto-bench
+<span class="hljs-comment"># Luego copia el archivo app.py</span>
+</div></code></pre>
+<h3 id="2-%F0%9F%8C%90-crear-entorno-virtual-e-instalar-dependencias">2. 🌐 Crear entorno virtual e instalar dependencias</h3>
+<h4 id="macos">macOS:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Crear entorno virtual</span>
+python3 -m venv venv
+
+<span class="hljs-comment"># Activar entorno virtual</span>
+<span class="hljs-built_in">source</span> venv/bin/activate
+
+<span class="hljs-comment"># Instalar dependencias (usa pip3 si pip no funciona)</span>
+pip3 install flask
+<span class="hljs-comment"># o</span>
+pip install flask
+</div></code></pre>
+<h4 id="windows">Windows:</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Crear entorno virtual</span>
+python <span class="hljs-literal">-m</span> venv venv
+
+<span class="hljs-comment"># Activar entorno virtual</span>
+venv\Scripts\activate
+
+<span class="hljs-comment"># Instalar dependencias</span>
+pip install flask
+</div></code></pre>
+<h3 id="3-%F0%9F%9A%80-ejecutar-la-aplicaci%C3%B3n">3. 🚀 Ejecutar la aplicación</h3>
+<h4 id="macos">macOS:</h4>
+<pre class="hljs"><code><div>python3 app.py
+</div></code></pre>
+<h4 id="windows">Windows:</h4>
+<pre class="hljs"><code><div>python app.py
+</div></code></pre>
+<h3 id="4-%F0%9F%8C%90-%C2%A1listo">4. 🌐 ¡Listo!</h3>
+<p>Abrir en navegador: <strong>http://127.0.0.1:5000</strong></p>
+<p>✅ <strong>Verás:</strong></p>
+<ul>
+<li>Página principal con datos de ejemplo</li>
+<li>Carpeta <code>data/</code> creada automáticamente</li>
+<li>4 archivos JSON con datos ficticios completos</li>
+</ul>
+<h2 id="%F0%9F%93%8A-datos-incluidos-autom%C3%A1ticamente">📊 Datos incluidos automáticamente</h2>
+<p>El sistema carga <strong>datos ficticios realistas</strong>:</p>
+<ul>
+<li><strong>6 usuarios</strong> con skills, roles y seniority</li>
+<li><strong>5 proyectos</strong> con presupuestos, clientes y tecnologías</li>
+<li><strong>6 asignaciones</strong> core/bench con porcentajes reales</li>
+<li><strong>3 solicitudes</strong> (vacaciones, refuerzos, cambios)</li>
+</ul>
+<h2 id="%F0%9F%8C%90-rutas-disponibles">🌐 Rutas disponibles</h2>
+<h3 id="p%C3%A1ginas-principales">Páginas principales:</h3>
+<ul>
+<li><code>/</code> - Página principal con resumen</li>
+<li><code>/proyectos</code> - Lista completa de proyectos</li>
+<li><code>/usuarios</code> - Lista de usuarios activos</li>
+<li><code>/proyecto/&lt;id&gt;</code> - Detalle de proyecto específico</li>
+</ul>
+<h3 id="apis-json">APIs JSON:</h3>
+<ul>
+<li><code>/api/datos</code> - Todos los datos JSON</li>
+<li><code>/api/proyectos</code> - Solo proyectos</li>
+<li><code>/api/usuarios</code> - Solo usuarios</li>
+<li><code>/dashboard</code> - Estadísticas del sistema</li>
+<li><code>/solicitudes</code> - Lista de solicitudes</li>
+</ul>
+<h3 id="pruebas">Pruebas:</h3>
+<ul>
+<li><code>/test</code> - Verificar que el servidor funciona</li>
+<li><code>/test-json</code> - Verificar que JSON funciona</li>
+</ul>
+<h2 id="%F0%9F%93%81-estructura-del-proyecto">📁 Estructura del proyecto</h2>
+<pre class="hljs"><code><div>flask-proyecto-bench/
+├── app.py                 # Aplicación principal (TODO EN UNO)
+├── README.md             # Esta documentación
+├── requirements.txt      # Dependencias (solo Flask)
+├── data/                 # Base de datos JSON (se crea automáticamente)
+│   ├── usuarios.json     # Usuarios con skills y roles
+│   ├── proyectos.json    # Proyectos con presupuestos
+│   ├── asignaciones.json # Asignaciones core/bench
+│   └── solicitudes.json  # Solicitudes de cambios
+├── app/                  # Carpeta opcional para templates
+│   ├── templates/        # Si quieres usar templates HTML
+│   └── static/           # CSS, JS, imágenes
+└── venv/                 # Entorno virtual
+</div></code></pre>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-tecnolog%C3%ADas-utilizadas">🛠️ Tecnologías utilizadas</h2>
+<ul>
+<li><strong>Backend</strong>: Flask (solo esto!)</li>
+<li><strong>Base de datos</strong>: JSON (archivos locales)</li>
+<li><strong>Frontend</strong>: HTML generado automáticamente</li>
+<li><strong>Persistencia</strong>: Sistema de archivos</li>
+</ul>
+<h2 id="%F0%9F%93%A6-requirementstxt-minimalista">📦 Requirements.txt minimalista</h2>
+<pre class="hljs"><code><div>Flask==2.3.3
+</div></code></pre>
+<h2 id="%F0%9F%94%A7-soluci%C3%B3n-de-problemas-comunes">🔧 Solución de problemas comunes</h2>
+<h3 id="%E2%9D%8C-error-%22no-module-named-flask%22">❌ Error: &quot;No module named 'flask'&quot;</h3>
+<p><strong>macOS:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Activar entorno virtual</span>
+<span class="hljs-built_in">source</span> venv/bin/activate
+
+<span class="hljs-comment"># Usar pip3 en lugar de pip</span>
+pip3 install flask
+</div></code></pre>
+<p><strong>Windows:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Activar entorno virtual</span>
+venv\Scripts\activate
+
+<span class="hljs-comment"># Instalar Flask</span>
+pip install flask
+</div></code></pre>
+<h3 id="%E2%9D%8C-error-%22pip-command-not-found%22">❌ Error: &quot;pip command not found&quot;</h3>
+<p><strong>macOS:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Usar pip3 en lugar de pip</span>
+pip3 --version
+
+<span class="hljs-comment"># Si no funciona, reinstalar pip</span>
+python3 -m ensurepip --upgrade
+</div></code></pre>
+<p><strong>Windows:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Usar python -m pip</span>
+python <span class="hljs-literal">-m</span> pip -<span class="hljs-literal">-version</span>
+
+<span class="hljs-comment"># Si no funciona, reinstalar pip</span>
+python <span class="hljs-literal">-m</span> ensurepip -<span class="hljs-literal">-upgrade</span>
+</div></code></pre>
+<h3 id="%E2%9D%8C-error-%22port-5000-already-in-use%22">❌ Error: &quot;Port 5000 already in use&quot;</h3>
+<p><strong>macOS:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Ver qué usa el puerto</span>
+lsof -ti:5000
+
+<span class="hljs-comment"># Matar el proceso</span>
+<span class="hljs-built_in">kill</span> -9 [PID]
+</div></code></pre>
+<p><strong>Windows:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Ver qué usa el puerto</span>
+netstat <span class="hljs-literal">-ano</span> | findstr :<span class="hljs-number">5000</span>
+
+<span class="hljs-comment"># Matar el proceso</span>
+taskkill /PID [<span class="hljs-type">PID</span>] /F
+</div></code></pre>
+<h3 id="%E2%9D%8C-error-%22localhost-not-working%22">❌ Error: &quot;localhost not working&quot;</h3>
+<p><strong>Usar 127.0.0.1 en lugar de localhost:</strong></p>
+<ul>
+<li>✅ http://127.0.0.1:5000/</li>
+<li>❌ http://localhost:5000/</li>
+</ul>
+<h2 id="%E2%9A%A1-comandos-%C3%BAtiles">⚡ Comandos útiles</h2>
+<h3 id="gesti%C3%B3n-del-entorno-virtual">Gestión del entorno virtual:</h3>
+<p><strong>macOS:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Activar</span>
+<span class="hljs-built_in">source</span> venv/bin/activate
+
+<span class="hljs-comment"># Desactivar</span>
+deactivate
+</div></code></pre>
+<p><strong>Windows:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Activar</span>
+venv\Scripts\activate
+
+<span class="hljs-comment"># Desactivar</span>
+deactivate
+</div></code></pre>
+<h3 id="gesti%C3%B3n-de-datos">Gestión de datos:</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Ver estructura de datos</span>
+python3 -m json.tool data/usuarios.json
+
+<span class="hljs-comment"># Respaldar datos</span>
+cp -r data/ backup_$(date +%Y%m%d)
+
+<span class="hljs-comment"># Limpiar datos (reiniciar)</span>
+rm -rf data/
+</div></code></pre>
+<h2 id="%F0%9F%8E%AF-roadmap-de-desarrollo">🎯 Roadmap de desarrollo</h2>
+<h3 id="%E2%9C%85-completado">✅ Completado:</h3>
+<ul>
+<li><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">Sistema de archivos JSON como base de datos</label></li>
+<li><input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1">Datos ficticios realistas</label></li>
+<li><input type="checkbox" id="checkbox2" checked="true"><label for="checkbox2">CRUD básico con persistencia</label></li>
+<li><input type="checkbox" id="checkbox3" checked="true"><label for="checkbox3">API REST completa</label></li>
+<li><input type="checkbox" id="checkbox4" checked="true"><label for="checkbox4">Interfaz HTML automática</label></li>
+</ul>
+<h3 id="%F0%9F%94%84-en-progreso">🔄 En progreso:</h3>
+<ul>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">Templates HTML personalizados</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Sistema de autenticación</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Formularios para CRUD</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Calendario interactivo</label></li>
+</ul>
+<h3 id="%F0%9F%93%8B-futuro">📋 Futuro:</h3>
+<ul>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">PWA (Progressive Web App)</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Sistema de notificaciones</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">Reportes automáticos</label></li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12">Migración opcional a DB real</label></li>
+</ul>
+<h2 id="%F0%9F%9A%80-ventajas-para-diferentes-casos-de-uso">🚀 Ventajas para diferentes casos de uso</h2>
+<h3 id="%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB-para-desarrolladores-aprendiendo">👨‍💻 <strong>Para desarrolladores aprendiendo:</strong></h3>
+<ul>
+<li>Sin complejidad de base de datos</li>
+<li>Ve exactamente cómo se almacenan los datos</li>
+<li>Fácil de modificar y experimentar</li>
+</ul>
+<h3 id="%F0%9F%8F%A2-para-equipos-peque%C3%B1os">🏢 <strong>Para equipos pequeños:</strong></h3>
+<ul>
+<li>Setup instantáneo en cualquier máquina</li>
+<li>Backup simple: solo copia la carpeta <code>data/</code></li>
+<li>Perfecto para hasta 1000 registros</li>
+</ul>
+<h3 id="%F0%9F%8E%AF-para-prototipos-y-demos">🎯 <strong>Para prototipos y demos:</strong></h3>
+<ul>
+<li>Funciona inmediatamente</li>
+<li>Datos realistas incluidos</li>
+<li>Fácil de mostrar y explicar</li>
+</ul>
+<h2 id="%F0%9F%A4%9D-contribuir">🤝 Contribuir</h2>
+<ol>
+<li>Fork el proyecto</li>
+<li>Crea una rama para tu feature: <code>git checkout -b feature/nueva-funcionalidad</code></li>
+<li>Commit tus cambios: <code>git commit -m 'Agrega nueva funcionalidad'</code></li>
+<li>Push a la rama: <code>git push origin feature/nueva-funcionalidad</code></li>
+<li>Abre un Pull Request</li>
+</ol>
+<h2 id="%F0%9F%93%84-licencia">📄 Licencia</h2>
+<p>MIT License - ver archivo LICENSE para más detalles.</p>
+<hr>
+<h2 id="%F0%9F%92%A1-migraci%C3%B3n-futura-a-base-de-datos-real">💡 Migración futura a base de datos real</h2>
+<p>Cuando tu proyecto crezca, puedes migrar fácilmente a MySQL/PostgreSQL:</p>
+<ol>
+<li>La estructura de datos ya está definida</li>
+<li>Los modelos están claros en los JSON</li>
+<li>Solo cambias las funciones <code>load_json_data()</code> y <code>save_json_data()</code></li>
+<li>El resto del código permanece igual</li>
+</ol>
+<p><strong>¡Empezar simple, crecer cuando sea necesario!</strong> 🚀</p>
+
+</body>
+
+</html>
