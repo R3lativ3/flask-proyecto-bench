@@ -1,0 +1,122 @@
+{
+  "proyectos": [
+    {
+      "id": 1,
+      "nombre": "E-commerce Mobile App",
+      "descripcion": "Aplicación móvil para tienda online con carrito, pagos y notificaciones push",
+      "fecha_inicio": "2024-02-01",
+      "fecha_fin": "2024-06-30",
+      "estado": "activo",
+      "core_developers": [
+        1,
+        3
+      ],
+      "bench_developers": [
+        2
+      ],
+      "tecnologias": [
+        "React Native",
+        "Node.js",
+        "MongoDB",
+        "Stripe"
+      ],
+      "cliente": "TechStore S.A.",
+      "presupuesto": 85000,
+      "prioridad": "alta"
+    },
+    {
+      "id": 2,
+      "nombre": "Sistema de Gestión Escolar",
+      "descripcion": "Plataforma web para administrar estudiantes, profesores, calificaciones y horarios",
+      "fecha_inicio": "2024-01-15",
+      "fecha_fin": "2024-08-15",
+      "estado": "activo",
+      "core_developers": [
+        4
+      ],
+      "bench_developers": [
+        2,
+        5
+      ],
+      "tecnologias": [
+        "Angular",
+        "Spring Boot",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "cliente": "Colegio San Martín",
+      "presupuesto": 120000,
+      "prioridad": "media"
+    },
+    {
+      "id": 3,
+      "nombre": "Dashboard Analytics",
+      "descripcion": "Tablero de control con métricas en tiempo real y reportes automáticos",
+      "fecha_inicio": "2024-03-01",
+      "fecha_fin": "2024-05-31",
+      "estado": "planificacion",
+      "core_developers": [
+        1
+      ],
+      "bench_developers": [
+        4,
+        5
+      ],
+      "tecnologias": [
+        "React",
+        "D3.js",
+        "Python",
+        "Redis"
+      ],
+      "cliente": "DataCorp Inc.",
+      "presupuesto": 95000,
+      "prioridad": "alta"
+    },
+    {
+      "id": 4,
+      "nombre": "API de Facturación",
+      "descripcion": "Microservicio para generar y gestionar facturas electrónicas",
+      "fecha_inicio": "2023-11-01",
+      "fecha_fin": "2024-02-29",
+      "estado": "completado",
+      "core_developers": [
+        2,
+        4
+      ],
+      "bench_developers": [],
+      "tecnologias": [
+        "Laravel",
+        "MySQL",
+        "PDF",
+        "SOAP"
+      ],
+      "cliente": "FactuFácil LTDA",
+      "presupuesto": 45000,
+      "prioridad": "baja"
+    },
+    {
+      "id": 5,
+      "nombre": "App de Delivery",
+      "descripcion": "Aplicación para pedidos de comida con tracking en tiempo real",
+      "fecha_inicio": "2024-04-01",
+      "fecha_fin": "2024-09-30",
+      "estado": "planificacion",
+      "core_developers": [
+        3
+      ],
+      "bench_developers": [
+        1,
+        2
+      ],
+      "tecnologias": [
+        "Flutter",
+        "Node.js",
+        "Socket.io",
+        "Maps API"
+      ],
+      "cliente": "FoodExpress",
+      "presupuesto": 135000,
+      "prioridad": "alta"
+    }
+  ]
+}

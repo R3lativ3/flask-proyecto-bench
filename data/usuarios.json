@@ -1,0 +1,92 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Ana García",
+      "email": "ana.garcia@empresa.com",
+      "rol": "tech_lead",
+      "activo": true,
+      "fecha_registro": "2023-12-01T09:00:00",
+      "skills": [
+        "React",
+        "Node.js",
+        "Python",
+        "Leadership"
+      ],
+      "seniority": "senior"
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos Rodríguez",
+      "email": "carlos.rodriguez@empresa.com",
+      "rol": "developer",
+      "activo": true,
+      "fecha_registro": "2024-01-15T10:30:00",
+      "skills": [
+        "Vue.js",
+        "Laravel",
+        "MySQL",
+        "Docker"
+      ],
+      "seniority": "mid"
+    },
+    {
+      "id": 3,
+      "nombre": "María López",
+      "email": "maria.lopez@empresa.com",
+      "rol": "developer",
+      "activo": true,
+      "fecha_registro": "2024-01-20T11:00:00",
+      "skills": [
+        "React Native",
+        "Flutter",
+        "Firebase"
+      ],
+      "seniority": "junior"
+    },
+    {
+      "id": 4,
+      "nombre": "Diego Martínez",
+      "email": "diego.martinez@empresa.com",
+      "rol": "developer",
+      "activo": true,
+      "fecha_registro": "2023-11-10T14:15:00",
+      "skills": [
+        "Angular",
+        "Spring Boot",
+        "PostgreSQL"
+      ],
+      "seniority": "senior"
+    },
+    {
+      "id": 5,
+      "nombre": "Sofia Chen",
+      "email": "sofia.chen@empresa.com",
+      "rol": "designer",
+      "activo": true,
+      "fecha_registro": "2024-02-01T08:30:00",
+      "skills": [
+        "Figma",
+        "UI/UX",
+        "Frontend",
+        "Design Systems"
+      ],
+      "seniority": "mid"
+    },
+    {
+      "id": 6,
+      "nombre": "Roberto Silva",
+      "email": "roberto.silva@empresa.com",
+      "rol": "developer",
+      "activo": false,
+      "fecha_registro": "2023-09-15T16:00:00",
+      "skills": [
+        "PHP",
+        "WordPress",
+        "jQuery"
+      ],
+      "seniority": "mid",
+      "fecha_salida": "2024-06-30"
+    }
+  ]
+}

@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Bench - Sistema de Gestión de Desarrolladores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #61dafb;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(97, 218, 251, 0.3);
+            border-bottom: 3px solid #61dafb;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #ffd700;
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            border-left: 4px solid #ffd700;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #ff6b6b;
+            font-size: 1.4em;
+            margin: 25px 0 10px 0;
+        }
+
+        h4 {
+            color: #4ecdc4;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #2d2d2d;
+            color: #61dafb;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #404040;
+        }
+
+        pre {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid #404040;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        pre code {
+            background: none;
+            color: #61dafb;
+            border: none;
+            padding: 0;
+        }
+
+        .json {
+            color: #98d982;
+        }
+
+        .bash {
+            color: #4ecdc4;
+        }
+
+        .powershell {
+            color: #ffd700;
+        }
+
+        .structure {
+            background: #1a1a1a;
+            border: 2px solid #404040;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #4ecdc4;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, #2d1810 0%, #4a2c1a 100%);
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: linear-gradient(135deg, #0d1620 0%, #1a2a40 100%);
+            border-left: 4px solid #61dafb;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: linear-gradient(135deg, #0d2818 0%, #1a4030 100%);
+            border-left: 4px solid #4ecdc4;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .simple {
+            background: linear-gradient(135deg, #2d1a60 0%, #4a2c80 100%);
+            border-left: 4px solid #9d4edd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .os-section {
+            background: #262626;
+            border: 1px solid #404040;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .windows {
+            border-left: 4px solid #00d4ff;
+        }
+
+        .macos {
+            border-left: 4px solid #ff9500;
+        }
+
+        .route-list {
+            background: #1a1a1a;
+            border: 1px solid #404040;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #2d2d2d 0%, #404040 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #555;
+        }
+
+        .json-example {
+            background: #1a2a1a;
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        strong {
+            color: #ffd700;
+        }
+
+        a {
+            color: #61dafb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 2px solid #404040;
+            color: #888;
+        }
+
+        .advantages {
+            background: linear-gradient(135deg, #1a2d1a 0%, #2d4a2d 100%);
+            border: 1px solid #4ecdc4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        @media print {
+            body {
+                background: #0c0c0c;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Proyecto Bench - Sistema de Gestión de Desarrolladores</h1>
+
+    <div class="info">
+        <strong>Sistema Flask con base de datos JSON en memoria para gestionar desarrolladores core y bench en proyectos de desarrollo.</strong>
+    </div>
+
+    <div class="info">
+        <h4>💡 Detalles de los datos ficticios:</h4>
+        <strong>👥 Usuarios (6 personas):</strong>
+        <ul>
+            <li><strong>Ana García</strong> - Tech Lead Senior (React, Node.js, Python)</li>
+            <li><strong>Carlos Rodríguez</strong> - Developer Mid (Vue.js, Laravel, MySQL)</li>
+            <li><strong>María López</strong> - Developer Junior (React Native, Flutter)</li>
+            <li><strong>Diego Martínez</strong> - Developer Senior (Angular, Spring Boot)</li>
+            <li><strong>Sofia Chen</strong> - Designer Mid (Figma, UI/UX)</li>
+            <li><strong>Roberto Silva</strong> - Ex-empleado (inactivo)</li>
+        </ul>
+
+        <strong>🚀 Proyectos (5 proyectos):</strong>
+        <ul>
+            <li><strong>E-commerce Mobile</strong> - $85K, React Native (activo)</li>
+            <li><strong>Sistema Escolar</strong> - $120K, Angular + Spring (activo)</li>
+            <li><strong>Dashboard Analytics</strong> - $95K, React + Python (planificación)</li>
+            <li><strong>API Facturación</strong> - $45K, Laravel (completado)</li>
+            <li><strong>App Delivery</strong> - $135K, Flutter (planificación)</li>
+        </ul>
+
+        <strong>📋 Tipos de solicitudes incluidas:</strong>
+        <ul>
+            <li><strong>Días libres</strong> - Vacaciones y conferencias</li>
+            <li><strong>Refuerzos</strong> - Solicitudes de más desarrolladores</li>
+            <li><strong>Cambios</strong> - Modificaciones de asignación</li>
+            <li><strong>Incorporaciones</strong> - Nuevos miembros al proyecto</li>
+            <li><strong>Extensiones</strong> - Ampliar participación</li>
+        </ul>
+    </div>
+
+    <div class="simple">
+        <h4>🎉 ¡Instalación super simple!</h4>
+        <p><strong>Sin base de datos externa, sin Docker, sin complicaciones.</strong> Solo Python y listo para funcionar.</p>
+    </div>
+
+    <h2>💡 ¿Qué es?</h2>
+    <p>Un sistema que permite:</p>
+    <ul>
+        <li>Asignar desarrolladores como <strong>"Core"</strong> (responsables principales) o <strong>"Bench"</strong> (soporte) en proyectos</li>
+        <li>Solicitar días libres y refuerzos</li>
+        <li>Visualizar calendario de asignaciones</li>
+        <li>Gestionar usuarios y proyectos</li>
+        <li><strong>Persistencia de datos en archivos JSON</strong> - sin necesidad de base de datos externa</li>
+    </ul>
+
+    <div class="advantages">
+        <h3>✨ Ventajas de usar JSON como base de datos:</h3>
+        <ul>
+            <li><strong>🚀 Instalación instantánea:</strong> No necesitas instalar MySQL, PostgreSQL o Docker</li>
+            <li><strong>🎯 Ideal para desarrollo:</strong> Perfecto para prototipos, demos y desarrollo local</li>
+            <li><strong>📁 Portable:</strong> Toda la información en archivos que puedes respaldar fácilmente</li>
+            <li><strong>👀 Visible:</strong> Puedes abrir y editar los datos directamente en cualquier editor</li>
+            <li><strong>🔄 Versionable:</strong> Los archivos JSON se pueden versionar con Git</li>
+            <li><strong>⚡ Rápido setup:</strong> De cero a funcionando en menos de 5 minutos</li>
+        </ul>
+    </div>
+
+    <h2>⚙️ Requisitos previos</h2>
+
+    <h3>🐍 Python (SOLO esto necesitas!)</h3>
+    
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <ol>
+            <li>Descargar Python desde <a href="https://python.org/downloads/">https://python.org/downloads/</a></li>
+            <li>Durante la instalación, marcar <strong>"Add Python to PATH"</strong></li>
+            <li>Verificar instalación en CMD: <code>python --version</code></li>
+            <li><strong>Verificar pip:</strong> <code>python -m pip --version</code></li>
+        </ol>
+        <div class="warning">
+            <strong>Si pip no está instalado:</strong>
+            <pre><code class="powershell"># Descargar get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+# Instalar pip
+python get-pip.py</code></pre>
+        </div>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <ol>
+            <li><strong>Opción 1 - Homebrew (recomendado):</strong>
+                <pre><code class="bash">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install python</code></pre>
+            </li>
+            <li><strong>Opción 2:</strong> Descargar desde <a href="https://python.org/downloads/">https://python.org/downloads/</a></li>
+            <li>Verificar instalación en Terminal: <code>python3 --version</code></li>
+            <li><strong>Verificar pip:</strong> <code>python3 -m pip --version</code></li>
+        </ol>
+        <div class="warning">
+            <strong>Si pip no está instalado:</strong>
+            <pre><code class="bash"># Descargar get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+# Instalar pip
+python3 get-pip.py</code></pre>
+        </div>
+    </div>
+
+    <h3>📦 Git (opcional, para clonar el repo)</h3>
+    
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <ol>
+            <li>Descargar Git desde <a href="https://git-scm.com/">https://git-scm.com/</a></li>
+            <li>Instalar con configuración por defecto</li>
+            <li>Verificar en CMD: <code>git --version</code></li>
+        </ol>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <ol>
+            <li>Con Homebrew: <code>brew install git</code></li>
+            <li>O instalar Xcode Command Line Tools: <code>xcode-select --install</code></li>
+            <li>Verificar en Terminal: <code>git --version</code></li>
+        </ol>
+    </div>
+
+    <h2>🛠️ Instalación súper simple (3 pasos)</h2>
+
+    <h3>1. 📥 Obtener el proyecto</h3>
+
+    <div class="warning">
+        <h4>⚠️ Si ya tienes el proyecto con MySQL:</h4>
+        <p>El código actual usa SQLAlchemy. Necesitas crear la versión JSON desde cero o reemplazar <code>app.py</code></p>
+    </div>
+
+    <div class="os-section windows">
+        <h4>🪟 Windows (PowerShell o CMD):</h4>
+        <pre><code class="powershell"># Opción A: Proyecto nuevo (recomendado)
+mkdir flask-proyecto-bench-json
+cd flask-proyecto-bench-json
+
+# Opción B: Si ya tienes el proyecto
+cd flask-proyecto-bench
+# Necesitarás reemplazar app.py (ver sección de problemas comunes)</code></pre>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS (Terminal):</h4>
+        <pre><code class="bash"># Opción A: Proyecto nuevo (recomendado)
+mkdir flask-proyecto-bench-json
+cd flask-proyecto-bench-json
+
+# Opción B: Si ya tienes el proyecto
+cd flask-proyecto-bench
+# Necesitarás reemplazar app.py (ver sección de problemas comunes)</code></pre>
+    </div>
+
+    <h3>2. 🌐 Crear entorno virtual e instalar dependencias</h3>
+
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <pre><code class="powershell"># Crear entorno virtual
+python -m venv venv
+
+# Activar entorno virtual
+venv\Scripts\activate
+
+# Instalar dependencias
+pip install flask flask-login wtforms</code></pre>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <pre><code class="bash"># Crear entorno virtual
+python3 -m venv venv
+
+# Activar entorno virtual
+source venv/bin/activate
+
+# Instalar dependencias
+pip install flask flask-login wtforms</code></pre>
+    </div>
+
+    <div class="info">
+        <strong>Nota:</strong> Verás <code>(venv)</code> al inicio de la línea cuando el entorno virtual esté activado.
+    </div>
+
+    <h3>3. 🚀 Ejecutar la aplicación</h3>
+
+    <div class="info">
+        <h4>🔧 Si tienes error "No module named 'flask_sqlalchemy'":</h4>
+        <p>Crea un nuevo archivo <code>app.py</code> con el código de la sección "Solución de problemas comunes"</p>
+    </div>
+
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <pre><code class="powershell">python app.py</code></pre>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <pre><code class="bash">python3 app.py</code></pre>
+    </div>
+
+    <div class="success">
+        <h4>🌐 ¡Listo! Abrir en navegador:</h4>
+        <p><strong><a href="http://localhost:5000">http://localhost:5000</a></strong></p>
+        <p>Los archivos JSON se crearán automáticamente en la carpeta <code>data/</code></p>
+        
+        <h4>✅ Deberías ver:</h4>
+        <ul>
+            <li>Mensaje "🚀 Proyecto Bench - Sistema JSON"</li>
+            <li>Enlaces a /proyectos y /usuarios</li>
+            <li>Carpeta <code>data/</code> creada automáticamente</li>
+            <li>4 archivos JSON con datos de ejemplo</li>
+        </ul>
+    </div>
+
+    <h2>📊 Estructura de datos JSON con ejemplos ricos</h2>
+
+    <div class="simple">
+        <h4>🎯 Datos ficticios incluidos:</h4>
+        <ul>
+            <li><strong>6 usuarios</strong> - Tech leads, developers, diseñador (con skills y seniority)</li>
+            <li><strong>5 proyectos</strong> - E-commerce, gestión escolar, analytics, API, delivery</li>
+            <li><strong>6 asignaciones</strong> - Core y bench con porcentajes reales</li>
+            <li><strong>6 solicitudes</strong> - Vacaciones, refuerzos, cambios, incorporaciones</li>
+        </ul>
+        <p><strong>✨ Todo interconectado</strong> - Los IDs y relaciones son coherentes entre archivos</p>
+    </div>
+
+    <p>El sistema creará automáticamente estos archivos en la carpeta <code>data/</code> con <strong>datos realistas y completos</strong>:</p>
+
+    <div class="json-example">
+        <h4>📁 data/usuarios.json</h4>
+        <pre><code class="json">{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Ana García",
+      "email": "ana.garcia@empresa.com",
+      "rol": "tech_lead",
+      "activo": true,
+      "fecha_registro": "2023-12-01T09:00:00",
+      "skills": ["React", "Node.js", "Python", "Leadership"],
+      "seniority": "senior"
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos Rodríguez",
+      "email": "carlos.rodriguez@empresa.com",
+      "rol": "developer",
+      "activo": true,
+      "fecha_registro": "2024-01-15T10:30:00",
+      "skills": ["Vue.js", "Laravel", "MySQL", "Docker"],
+      "seniority": "mid"
+    },
+    {
+      "id": 3,
+      "nombre": "María López",
+      "email": "maria.lopez@empresa.com",
+      "rol": "developer",
+      "activo": true,
+      "fecha_registro": "2024-01-20T11:00:00",
+      "skills": ["React Native", "Flutter", "Firebase"],
+      "seniority": "junior"
+    },
+    {
+      "id": 4,
+      "nombre": "Diego Martínez",
+      "email": "diego.martinez@empresa.com",
+      "rol": "developer",
+      "activo": true,
+      "fecha_registro": "2023-11-10T14:15:00",
+      "skills": ["Angular", "Spring Boot", "PostgreSQL"],
+      "seniority": "senior"
+    },
+    {
+      "id": 5,
+      "nombre": "Sofia Chen",
+      "email": "sofia.chen@empresa.com",
+      "rol": "designer",
+      "activo": true,
+      "fecha_registro": "2024-02-01T08:30:00",
+      "skills": ["Figma", "UI/UX", "Frontend", "Design Systems"],
+      "seniority": "mid"
+    },
+    {
+      "id": 6,
+      "nombre": "Roberto Silva",
+      "email": "roberto.silva@empresa.com",
+      "rol": "developer",
+      "activo": false,
+      "fecha_registro": "2023-09-15T16:00:00",
+      "skills": ["PHP", "WordPress", "jQuery"],
+      "seniority": "mid",
+      "fecha_salida": "2024-06-30"
+    }
+  ]
+}</code></pre>
+    </div>
+
+    <div class="json-example">
+        <h4>📁 data/proyectos.json</h4>
+        <pre><code class="json">{
+  "proyectos": [
+    {
+      "id": 1,
+      "nombre": "E-commerce Mobile App",
+      "descripcion": "Aplicación móvil para tienda online con carrito, pagos y notificaciones push",
+      "fecha_inicio": "2024-02-01",
+      "fecha_fin": "2024-06-30",
+      "estado": "activo",
+      "core_developers": [1, 3],
+      "bench_developers": [2],
+      "tecnologias": ["React Native", "Node.js", "MongoDB", "Stripe"],
+      "cliente": "TechStore S.A.",
+      "presupuesto": 85000,
+      "prioridad": "alta"
+    },
+    {
+      "id": 2,
+      "nombre": "Sistema de Gestión Escolar",
+      "descripcion": "Plataforma web para administrar estudiantes, profesores, calificaciones y horarios",
+      "fecha_inicio": "2024-01-15",
+      "fecha_fin": "2024-08-15",
+      "estado": "activo",
+      "core_developers": [4],
+      "bench_developers": [2, 5],
+      "tecnologias": ["Angular", "Spring Boot", "PostgreSQL", "Docker"],
+      "cliente": "Colegio San Martín",
+      "presupuesto": 120000,
+      "prioridad": "media"
+    },
+    {
+      "id": 3,
+      "nombre": "Dashboard Analytics",
+      "descripcion": "Tablero de control con métricas en tiempo real y reportes automáticos",
+      "fecha_inicio": "2024-03-01",
+      "fecha_fin": "2024-05-31",
+      "estado": "planificacion",
+      "core_developers": [1],
+      "bench_developers": [4, 5],
+      "tecnologias": ["React", "D3.js", "Python", "Redis"],
+      "cliente": "DataCorp Inc.",
+      "presupuesto": 95000,
+      "prioridad": "alta"
+    },
+    {
+      "id": 4,
+      "nombre": "API de Facturación",
+      "descripcion": "Microservicio para generar y gestionar facturas electrónicas",
+      "fecha_inicio": "2023-11-01",
+      "fecha_fin": "2024-02-29",
+      "estado": "completado",
+      "core_developers": [2, 4],
+      "bench_developers": [],
+      "tecnologias": ["Laravel", "MySQL", "PDF", "SOAP"],
+      "cliente": "FactuFácil LTDA",
+      "presupuesto": 45000,
+      "prioridad": "baja"
+    },
+    {
+      "id": 5,
+      "nombre": "App de Delivery",
+      "descripcion": "Aplicación para pedidos de comida con tracking en tiempo real",
+      "fecha_inicio": "2024-04-01",
+      "fecha_fin": "2024-09-30",
+      "estado": "planificacion",
+      "core_developers": [3],
+      "bench_developers": [1, 2],
+      "tecnologias": ["Flutter", "Node.js", "Socket.io", "Maps API"],
+      "cliente": "FoodExpress",
+      "presupuesto": 135000,
+      "prioridad": "alta"
+    }
+  ]
+}</code></pre>
+    </div>
+
+    <div class="json-example">
+        <h4>📁 data/asignaciones.json</h4>
+        <pre><code class="json">{
+  "asignaciones": [
+    {
+      "id": 1,
+      "proyecto_id": 1,
+      "usuario_id": 1,
+      "tipo": "core",
+      "fecha_asignacion": "2024-02-01",
+      "fecha_fin": "2024-06-30",
+      "porcentaje_dedicacion": 80,
+      "activa": true,
+      "rol_proyecto": "Tech Lead"
+    },
+    {
+      "id": 2,
+      "proyecto_id": 1,
+      "usuario_id": 3,
+      "tipo": "core",
+      "fecha_asignacion": "2024-02-15",
+      "fecha_fin": "2024-06-30",
+      "porcentaje_dedicacion": 100,
+      "activa": true,
+      "rol_proyecto": "Mobile Developer"
+    },
+    {
+      "id": 3,
+      "proyecto_id": 1,
+      "usuario_id": 2,
+      "tipo": "bench",
+      "fecha_asignacion": "2024-03-01",
+      "fecha_fin": "2024-04-30",
+      "porcentaje_dedicacion": 40,
+      "activa": true,
+      "rol_proyecto": "Backend Support"
+    },
+    {
+      "id": 4,
+      "proyecto_id": 2,
+      "usuario_id": 4,
+      "tipo": "core",
+      "fecha_asignacion": "2024-01-15",
+      "fecha_fin": "2024-08-15",
+      "porcentaje_dedicacion": 90,
+      "activa": true,
+      "rol_proyecto": "Full Stack Lead"
+    },
+    {
+      "id": 5,
+      "proyecto_id": 2,
+      "usuario_id": 2,
+      "tipo": "bench",
+      "fecha_asignacion": "2024-02-01",
+      "fecha_fin": "2024-03-31",
+      "porcentaje_dedicacion": 60,
+      "activa": false,
+      "rol_proyecto": "Backend Developer"
+    },
+    {
+      "id": 6,
+      "proyecto_id": 2,
+      "usuario_id": 5,
+      "tipo": "bench",
+      "fecha_asignacion": "2024-01-20",
+      "fecha_fin": "2024-08-15",
+      "porcentaje_dedicacion": 50,
+      "activa": true,
+      "rol_proyecto": "UI/UX Designer"
+    }
+  ]
+}</code></pre>
+    </div>
+
+    <div class="json-example">
+        <h4>📁 data/solicitudes.json</h4>
+        <pre><code class="json">{
+  "solicitudes": [
+    {
+      "id": 1,
+      "usuario_id": 3,
+      "proyecto_id": 1,
+      "tipo": "dias_libres",
+      "fecha_inicio": "2024-03-15",
+      "fecha_fin": "2024-03-18",
+      "motivo": "Vacaciones de Semana Santa",
+      "estado": "aprobada",
+      "fecha_solicitud": "2024-03-01T09:00:00",
+      "aprobado_por": 1,
+      "fecha_aprobacion": "2024-03-02T14:30:00"
+    },
+    {
+      "id": 2,
+      "usuario_id": 2,
+      "proyecto_id": 2,
+      "tipo": "refuerzo",
+      "fecha_inicio": "2024-04-01",
+      "fecha_fin": "2024-04-30",
+      "motivo": "Necesitamos acelerar el desarrollo del módulo de reportes",
+      "estado": "pendiente",
+      "fecha_solicitud": "2024-03-25T16:45:00",
+      "desarrolladores_solicitados": [4, 5],
+      "horas_adicionales": 40
+    },
+    {
+      "id": 3,
+      "usuario_id": 4,
+      "proyecto_id": 2,
+      "tipo": "cambio_asignacion",
+      "fecha_inicio": "2024-05-01",
+      "fecha_fin": "2024-05-31",
+      "motivo": "Reducir dedicación por compromisos en otro proyecto",
+      "estado": "rechazada",
+      "fecha_solicitud": "2024-04-20T11:15:00",
+      "nuevo_porcentaje": 60,
+      "rechazado_por": 1,
+      "fecha_rechazo": "2024-04-22T09:00:00",
+      "motivo_rechazo": "Período crítico del proyecto, no es posible reducir dedicación"
+    },
+    {
+      "id": 4,
+      "usuario_id": 1,
+      "proyecto_id": 3,
+      "tipo": "dias_libres",
+      "fecha_inicio": "2024-05-20",
+      "fecha_fin": "2024-05-24",
+      "motivo": "Conferencia de tecnología en Barcelona",
+      "estado": "aprobada",
+      "fecha_solicitud": "2024-04-15T13:20:00",
+      "aprobado_por": 1,
+      "fecha_aprobacion": "2024-04-16T08:00:00",
+      "es_capacitacion": true
+    },
+    {
+      "id": 5,
+      "usuario_id": 5,
+      "proyecto_id": 1,
+      "tipo": "incorporacion",
+      "fecha_inicio": "2024-04-15",
+      "fecha_fin": "2024-06-30",
+      "motivo": "Necesitamos apoyo en diseño de interfaces para móvil",
+      "estado": "aprobada",
+      "fecha_solicitud": "2024-04-01T10:30:00",
+      "aprobado_por": 1,
+      "fecha_aprobacion": "2024-04-02T15:45:00",
+      "porcentaje_dedicacion": 30
+    },
+    {
+      "id": 6,
+      "usuario_id": 2,
+      "proyecto_id": 1,
+      "tipo": "extension",
+      "fecha_inicio": "2024-05-01",
+      "fecha_fin": "2024-06-30",
+      "motivo": "Extender participación en backend por complejidad adicional",
+      "estado": "pendiente",
+      "fecha_solicitud": "2024-04-28T17:00:00",
+      "nuevo_porcentaje": 70
+    }
+  ]
+}</code></pre>
+    </div>
+
+    <h2>🔧 Configuración opcional</h2>
+
+    <h3>🎛️ Variables de entorno (.env)</h3>
+    <p>Puedes crear un archivo <code>.env</code> para configuraciones personalizadas:</p>
+
+    <pre><code># Puerto del servidor (por defecto: 5000)
+PORT=5000
+
+# Clave secreta para sesiones
+SECRET_KEY=tu_clave_secreta_super_segura
+
+# Carpeta de datos (por defecto: data/)
+DATA_FOLDER=data
+
+# Modo debug (por defecto: True)
+DEBUG=True</code></pre>
+
+    <h3>🗂️ Backup automático</h3>
+    <p>El sistema puede crear backups automáticos de tus datos JSON:</p>
+
+    <pre><code># En el archivo config.py
+BACKUP_ENABLED = True
+BACKUP_INTERVAL = 24  # horas
+BACKUP_FOLDER = "backups/"</code></pre>
+
+    <h2>🔧 Solución de problemas comunes</h2>
+
+    <h3>❌ Error: "No module named 'flask_sqlalchemy'"</h3>
+
+    <div class="warning">
+        <h4>🚨 Problema más común:</h4>
+        <p>Tu archivo <code>app.py</code> actual está configurado para MySQL/SQLAlchemy, pero necesitas la versión JSON.</p>
+        
+        <strong>Solución: Reemplazar app.py con la versión JSON</strong>
+        
+        <h4>📝 app.py correcto para JSON:</h4>
+        <pre><code class="bash">from flask import Flask, render_template, jsonify, request, redirect, url_for
+import json
+import os
+from datetime import datetime
+
+app = Flask(__name__)
+app.secret_key = 'tu_clave_secreta_aqui'
+
+# Configuración para JSON
+DATA_FOLDER = 'data'
+
+def ensure_data_folder():
+    """Crear carpeta data si no existe"""
+    if not os.path.exists(DATA_FOLDER):
+        os.makedirs(DATA_FOLDER)
+
+def load_json_data(filename):
+    """Cargar datos desde archivo JSON"""
+    filepath = os.path.join(DATA_FOLDER, filename)
+    if os.path.exists(filepath):
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+def save_json_data(filename, data):
+    """Guardar datos en archivo JSON"""
+    ensure_data_folder()
+    filepath = os.path.join(DATA_FOLDER, filename)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+def init_default_data():
+    """Inicializar datos por defecto si no existen"""
+    # Usuarios completos con datos ficticios
+    usuarios_default = {
+        "usuarios": [
+            {
+                "id": 1,
+                "nombre": "Ana García",
+                "email": "ana.garcia@empresa.com",
+                "rol": "tech_lead",
+                "activo": True,
+                "fecha_registro": "2023-12-01T09:00:00",
+                "skills": ["React", "Node.js", "Python", "Leadership"],
+                "seniority": "senior"
+            },
+            {
+                "id": 2,
+                "nombre": "Carlos Rodríguez",
+                "email": "carlos.rodriguez@empresa.com",
+                "rol": "developer",
+                "activo": True,
+                "fecha_registro": "2024-01-15T10:30:00",
+                "skills": ["Vue.js", "Laravel", "MySQL", "Docker"],
+                "seniority": "mid"
+            },
+            {
+                "id": 3,
+                "nombre": "María López",
+                "email": "maria.lopez@empresa.com",
+                "rol": "developer",
+                "activo": True,
+                "fecha_registro": "2024-01-20T11:00:00",
+                "skills": ["React Native", "Flutter", "Firebase"],
+                "seniority": "junior"
+            },
+            {
+                "id": 4,
+                "nombre": "Diego Martínez",
+                "email": "diego.martinez@empresa.com",
+                "rol": "developer",
+                "activo": True,
+                "fecha_registro": "2023-11-10T14:15:00",
+                "skills": ["Angular", "Spring Boot", "PostgreSQL"],
+                "seniority": "senior"
+            },
+            {
+                "id": 5,
+                "nombre": "Sofia Chen",
+                "email": "sofia.chen@empresa.com",
+                "rol": "designer",
+                "activo": True,
+                "fecha_registro": "2024-02-01T08:30:00",
+                "skills": ["Figma", "UI/UX", "Frontend", "Design Systems"],
+                "seniority": "mid"
+            }
+        ]
+    }
+    
+    # Proyectos realistas con datos completos
+    proyectos_default = {
+        "proyectos": [
+            {
+                "id": 1,
+                "nombre": "E-commerce Mobile App",
+                "descripcion": "Aplicación móvil para tienda online con carrito, pagos y notificaciones push",
+                "fecha_inicio": "2024-02-01",
+                "fecha_fin": "2024-06-30",
+                "estado": "activo",
+                "core_developers": [1, 3],
+                "bench_developers": [2],
+                "tecnologias": ["React Native", "Node.js", "MongoDB", "Stripe"],
+                "cliente": "TechStore S.A.",
+                "presupuesto": 85000,
+                "prioridad": "alta"
+            },
+            {
+                "id": 2,
+                "nombre": "Sistema de Gestión Escolar",
+                "descripcion": "Plataforma web para administrar estudiantes, profesores, calificaciones y horarios",
+                "fecha_inicio": "2024-01-15",
+                "fecha_fin": "2024-08-15",
+                "estado": "activo",
+                "core_developers": [4],
+                "bench_developers": [2, 5],
+                "tecnologias": ["Angular", "Spring Boot", "PostgreSQL", "Docker"],
+                "cliente": "Colegio San Martín",
+                "presupuesto": 120000,
+                "prioridad": "media"
+            },
+            {
+                "id": 3,
+                "nombre": "Dashboard Analytics",
+                "descripcion": "Tablero de control con métricas en tiempo real y reportes automáticos",
+                "fecha_inicio": "2024-03-01",
+                "fecha_fin": "2024-05-31",
+                "estado": "planificacion",
+                "core_developers": [1],
+                "bench_developers": [4, 5],
+                "tecnologias": ["React", "D3.js", "Python", "Redis"],
+                "cliente": "DataCorp Inc.",
+                "presupuesto": 95000,
+                "prioridad": "alta"
+            }
+        ]
+    }
+    
+    # Asignaciones realistas
+    asignaciones_default = {
+        "asignaciones": [
+            {
+                "id": 1,
+                "proyecto_id": 1,
+                "usuario_id": 1,
+                "tipo": "core",
+                "fecha_asignacion": "2024-02-01",
+                "fecha_fin": "2024-06-30",
+                "porcentaje_dedicacion": 80,
+                "activa": True,
+                "rol_proyecto": "Tech Lead"
+            },
+            {
+                "id": 2,
+                "proyecto_id": 1,
+                "usuario_id": 3,
+                "tipo": "core",
+                "fecha_asignacion": "2024-02-15",
+                "fecha_fin": "2024-06-30",
+                "porcentaje_dedicacion": 100,
+                "activa": True,
+                "rol_proyecto": "Mobile Developer"
+            },
+            {
+                "id": 3,
+                "proyecto_id": 2,
+                "usuario_id": 4,
+                "tipo": "core",
+                "fecha_asignacion": "2024-01-15",
+                "fecha_fin": "2024-08-15",
+                "porcentaje_dedicacion": 90,
+                "activa": True,
+                "rol_proyecto": "Full Stack Lead"
+            }
+        ]
+    }
+    
+    # Solicitudes variadas
+    solicitudes_default = {
+        "solicitudes": [
+            {
+                "id": 1,
+                "usuario_id": 3,
+                "proyecto_id": 1,
+                "tipo": "dias_libres",
+                "fecha_inicio": "2024-03-15",
+                "fecha_fin": "2024-03-18",
+                "motivo": "Vacaciones de Semana Santa",
+                "estado": "aprobada",
+                "fecha_solicitud": "2024-03-01T09:00:00",
+                "aprobado_por": 1
+            },
+            {
+                "id": 2,
+                "usuario_id": 2,
+                "proyecto_id": 2,
+                "tipo": "refuerzo",
+                "fecha_inicio": "2024-04-01",
+                "fecha_fin": "2024-04-30",
+                "motivo": "Necesitamos acelerar el desarrollo del módulo de reportes",
+                "estado": "pendiente",
+                "fecha_solicitud": "2024-03-25T16:45:00"
+            }
+        ]
+    }
+    
+    # Crear archivos si no existen
+    if not os.path.exists(os.path.join(DATA_FOLDER, 'usuarios.json')):
+        save_json_data('usuarios.json', usuarios_default)
+    
+    if not os.path.exists(os.path.join(DATA_FOLDER, 'proyectos.json')):
+        save_json_data('proyectos.json', proyectos_default)
+    
+    if not os.path.exists(os.path.join(DATA_FOLDER, 'asignaciones.json')):
+        save_json_data('asignaciones.json', asignaciones_default)
+    
+    if not os.path.exists(os.path.join(DATA_FOLDER, 'solicitudes.json')):
+        save_json_data('solicitudes.json', solicitudes_default)
+
+@app.route('/')
+def index():
+    return """
+    <h1>🚀 Proyecto Bench - Sistema JSON</h1>
+    <p><strong>¡Funcionando correctamente!</strong></p>
+    <ul>
+        <li><a href="/proyectos">Ver Proyectos</a></li>
+        <li><a href="/usuarios">Ver Usuarios</a></li>
+        <li><a href="/api/datos">API - Todos los datos</a></li>
+    </ul>
+    <p><em>Los datos se almacenan en la carpeta 'data/' como archivos JSON.</em></p>
+    """
+
+@app.route('/proyectos')
+def proyectos():
+    data = load_json_data('proyectos.json')
+    proyectos = data.get('proyectos', [])
+    return jsonify({
+        "mensaje": "Lista de proyectos",
+        "total": len(proyectos),
+        "proyectos": proyectos
+    })
+
+@app.route('/usuarios')
+def usuarios():
+    data = load_json_data('usuarios.json')
+    usuarios = data.get('usuarios', [])
+    return jsonify({
+        "mensaje": "Lista de usuarios", 
+        "total": len(usuarios),
+        "usuarios": usuarios
+    })
+
+@app.route('/api/datos')
+def api_datos():
+    return jsonify({
+        "usuarios": load_json_data('usuarios.json'),
+        "proyectos": load_json_data('proyectos.json'),
+        "asignaciones": load_json_data('asignaciones.json'),
+        "solicitudes": load_json_data('solicitudes.json')
+    })
+
+if __name__ == '__main__':
+    print("🚀 Iniciando Proyecto Bench...")
+    print("📁 Inicializando datos JSON...")
+    init_default_data()
+    print("✅ Servidor listo en http://localhost:5000")
+    app.run(host='0.0.0.0', port=5000, debug=True)</code></pre>
+    </div>
+
+    <h3>❌ Error con pip</h3>
+
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <div class="warning">
+            <strong>Problema: "pip no se reconoce como comando"</strong>
+            <pre><code class="powershell"># Verificar si pip está instalado
+python -m pip --version
+
+# Si no funciona, reinstalar pip
+python -m ensurepip --upgrade
+
+# O descargar e instalar manualmente
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py</code></pre>
+        </div>
+        <div class="info">
+            <strong>Problema: "Permission denied" al instalar paquetes</strong>
+            <pre><code class="powershell"># Usar --user para instalar en tu usuario
+python -m pip install --user flask
+
+# O ejecutar CMD como administrador</code></pre>
+        </div>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <div class="warning">
+            <strong>Problema: "command not found: pip"</strong>
+            <pre><code class="bash"># Verificar si pip está instalado
+python3 -m pip --version
+
+# Si no funciona, reinstalar pip
+python3 -m ensurepip --upgrade
+
+# O instalar manualmente
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py</code></pre>
+        </div>
+        <div class="info">
+            <strong>Problema: "Permission denied" al instalar paquetes</strong>
+            <pre><code class="bash"># Usar --user para instalar en tu usuario
+python3 -m pip install --user flask
+
+# O usar homebrew si instalaste Python con brew
+brew install python
+# Esto incluye pip automáticamente</code></pre>
+        </div>
+    </div>
+
+    <h3>❌ Error "Puerto 5000 ocupado"</h3>
+
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <pre><code class="powershell"># Ver qué está usando el puerto
+netstat -ano | findstr :5000
+
+# Matar el proceso (reemplazar [PID] con el número real)
+taskkill /PID [PID] /F
+
+# O cambiar el puerto en app.py
+app.run(host='0.0.0.0', port=8000)</code></pre>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <pre><code class="bash"># Ver qué está usando el puerto
+lsof -ti:5000
+
+# Matar el proceso
+kill -9 [PID]
+
+# O cambiar el puerto en app.py
+app.run(host='0.0.0.0', port=8000)</code></pre>
+    </div>
+
+    <h3>❌ Error de permisos al crear archivos</h3>
+
+    <div class="warning">
+        <strong>Solución:</strong>
+        <ul>
+            <li>Asegúrate de ejecutar desde una carpeta donde tengas permisos de escritura</li>
+            <li>En Windows: No ejecutes desde <code>C:\Program Files\</code></li>
+            <li>En macOS: No ejecutes desde carpetas del sistema</li>
+            <li>Recomendado: Usar tu carpeta de usuario o Desktop</li>
+        </ul>
+    </div>
+
+    <h3>❌ Datos perdidos al reiniciar</h3>
+
+    <div class="info">
+        <strong>Verificar:</strong>
+        <ul>
+            <li>Que la carpeta <code>data/</code> se esté creando correctamente</li>
+            <li>Que los archivos JSON tengan permisos de escritura</li>
+            <li>Que no estés ejecutando en modo temporal/incognito</li>
+        </ul>
+    </div>
+
+    <h2>📁 Estructura del proyecto</h2>
+
+    <div class="structure">
+flask-proyecto-bench/
+├── app.py                 # Aplicación principal
+├── requirements.txt       # Dependencias (simplificado)
+├── README.md             # Esta documentación
+├── .env                  # Variables de entorno (opcional)
+├── config.py             # Configuración de la app
+├── data/                 # Base de datos JSON (se crea automáticamente)
+│   ├── usuarios.json
+│   ├── proyectos.json
+│   ├── asignaciones.json
+│   └── solicitudes.json
+├── backups/              # Respaldos automáticos (opcional)
+├── app/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── usuario.py    # Modelo Usuario
+│   │   ├── proyecto.py   # Modelo Proyecto
+│   │   └── database.py   # Manejador JSON
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css  # Estilos personalizados
+│   │   └── js/
+│   │       └── main.js    # JavaScript principal
+│   └── templates/
+│       ├── base.html      # Plantilla base
+│       ├── index.html     # Página principal
+│       ├── proyectos.html # Lista de proyectos
+│       ├── proyecto_detalle.html # Detalle de proyecto
+│       ├── usuarios.html  # Lista de usuarios
+│       ├── about.html     # Acerca de
+│       └── contact.html   # Contacto
+    </div>
+
+    <h2>🛣️ Rutas disponibles</h2>
+
+    <div class="route-list">
+        <ul>
+            <li><strong>/</strong> - Página principal con dashboard</li>
+            <li><strong>/proyectos</strong> - Lista de proyectos</li>
+            <li><strong>/proyectos/nuevo</strong> - Crear nuevo proyecto</li>
+            <li><strong>/proyecto/&lt;id&gt;</strong> - Detalle de proyecto específico</li>
+            <li><strong>/usuarios</strong> - Lista de usuarios</li>
+            <li><strong>/usuarios/nuevo</strong> - Registrar nuevo usuario</li>
+            <li><strong>/asignaciones</strong> - Gestión de asignaciones</li>
+            <li><strong>/solicitudes</strong> - Sistema de solicitudes</li>
+            <li><strong>/calendario</strong> - Vista de calendario</li>
+            <li><strong>/api/datos</strong> - API REST para datos JSON</li>
+            <li><strong>/about</strong> - Información del proyecto</li>
+            <li><strong>/contact</strong> - Formulario de contacto</li>
+        </ul>
+    </div>
+
+    <h2>🛠️ Tecnologías utilizadas</h2>
+
+    <div class="tech-stack">
+        <div class="tech-item">
+            <strong>Backend:</strong><br>
+            Flask, Flask-Login, WTForms
+        </div>
+        <div class="tech-item">
+            <strong>Base de datos:</strong><br>
+            JSON (archivos locales)
+        </div>
+        <div class="tech-item">
+            <strong>Frontend:</strong><br>
+            HTML5, CSS3, Bootstrap 5, JavaScript
+        </div>
+        <div class="tech-item">
+            <strong>Persistencia:</strong><br>
+            Sistema de archivos JSON
+        </div>
+    </div>
+
+    <h2>⚡ Comandos útiles para desarrollo</h2>
+
+    <h3>🌐 Activar/Desactivar entorno virtual</h3>
+
+    <div class="os-section windows">
+        <h4>🪟 Windows:</h4>
+        <pre><code class="powershell"># Activar
+venv\Scripts\activate
+
+# Desactivar
+deactivate</code></pre>
+    </div>
+
+    <div class="os-section macos">
+        <h4>🍎 macOS:</h4>
+        <pre><code class="bash"># Activar
+source venv/bin/activate
+
+# Desactivar
+deactivate</code></pre>
+    </div>
+
+    <h3>📦 Gestión de dependencias simplificada</h3>
+
+    <div class="success">
+        <strong>requirements.txt minimalista:</strong>
+        <pre><code>Flask==2.3.3
+Flask-Login==0.6.2
+WTForms==3.0.1</code></pre>
+
+        <strong>Comandos útiles:</strong>
+        <pre><code># Instalar dependencias
+pip install -r requirements.txt
+
+# Generar requirements actualizado
+pip freeze > requirements.txt
+
+# Verificar dependencias instaladas
+pip list</code></pre>
+    </div>
+
+    <h3>🗄️ Gestión de datos JSON</h3>
+
+    <div class="info">
+        <strong>Comandos para manejo de datos:</strong>
+        <pre><code># Respaldar datos
+cp -r data/ backup_$(date +%Y%m%d)
+
+# Limpiar datos (reiniciar sistema)
+rm -rf data/
+
+# Importar datos de backup
+cp -r backup_20241115/ data/
+
+# Ver estructura de datos
+python -m json.tool data/usuarios.json</code></pre>
+    </div>
+
+    <h2>🎯 Próximos pasos de desarrollo</h2>
+
+    <h3>Sprint 1: Estructura base con JSON ✅</h3>
+    <ul>
+        <li>Sistema de archivos JSON como base de datos</li>
+        <li>Modelos para Usuario, Proyecto, Asignación</li>
+        <li>CRUD básico con persistencia en archivos</li>
+    </ul>
+
+    <h3>Sprint 2: Autenticación y permisos</h3>
+    <ul>
+        <li>Sistema de login/registro con Flask-Login</li>
+        <li>Roles y permisos almacenados en JSON</li>
+        <li>Formularios con WTForms y validaciones</li>
+    </ul>
+
+    <h3>Sprint 3: Gestión completa de proyectos</h3>
+    <ul>
+        <li>CRUD completo para proyectos</li>
+        <li>Asignación de desarrolladores core y bench</li>
+        <li>Validaciones de negocio y manejo de errores</li>
+    </ul>
+
+    <h3>Sprint 4: Calendario y solicitudes avanzadas</h3>
+    <ul>
+        <li>Sistema completo de solicitudes</li>
+        <li>Calendario interactivo de asignaciones</li>
+        <li>Notificaciones y alertas</li>
+        <li>Reportes y estadísticas</li>
+    </ul>
+
+    <h3>Sprint 5: Mejoras y optimización</h3>
+    <ul>
+        <li>API REST completa</li>
+        <li>Sistema de backup automático</li>
+        <li>Migración opcional a base de datos real</li>
+        <li>PWA y funcionalidades offline</li>
+    </ul>
+
+    <h2>🚀 Ventajas de esta arquitectura</h2>
+
+    <div class="advantages">
+        <h3>✨ Para desarrollo y prototipos:</h3>
+        <ul>
+            <li><strong>🔥 Setup instantáneo:</strong> Desde cero a funcionando en 2 minutos</li>
+            <li><strong>🔍 Debug fácil:</strong> Puedes ver y editar los datos directamente</li>
+            <li><strong>📱 Portable:</strong> Lleva tu proyecto a cualquier lado</li>
+            <li><strong>🎯 Ideal para demos:</strong> Sin dependencias complejas</li>
+        </ul>
+
+        <h3>💼 Para equipos pequeños:</h3>
+        <ul>
+            <li><strong>📊 Hasta 1000 registros:</strong> Rendimiento excelente</li>
+            <li><strong>🔐 Control total:</strong> Sabes exactamente dónde están tus datos</li>
+            <li><strong>💾 Backup simple:</strong> Solo copia la carpeta data/</li>
+            <li><strong>🔄 Versionado:</strong> Los cambios se pueden trackear con Git</li>
+        </ul>
+
+        <h3>🎓 Para aprender:</h3>
+        <ul>
+            <li><strong>📚 Conceptos claros:</strong> Ves cómo funcionan las bases de datos</li>
+            <li><strong>🛠️ Sin complejidad:</strong> Enfócate en la lógica de negocio</li>
+            <li><strong>⚡ Migración futura:</strong> Fácil evolución a DB tradicional</li>
+        </ul>
+    </div>
+
+    <h2>🤝 Contribuir</h2>
+    <ol>
+        <li>Fork el proyecto</li>
+        <li>Crea una rama para tu feature (<code>git checkout -b feature/nueva-funcionalidad</code>)</li>
+        <li>Commit tus cambios (<code>git commit -m 'Agrega nueva funcionalidad'</code>)</li>
+        <li>Push a la rama (<code>git push origin feature/nueva-funcionalidad</code>)</li>
+        <li>Abre un Pull Request</li>
+    </ol>
+
+    <div class="footer">
+        <h2>📜 Licencia</h2>
+        <p><strong>MIT License</strong> - ver archivo LICENSE para más detalles.</p>
+        <hr style="margin: 20px 0; border: 1px solid #404040;">
+        <p>🚀 <strong>Proyecto Bench</strong> - Sistema de Gestión de Desarrolladores</p>
+        <p>Creado con ❤️ para simplificar la gestión de equipos de desarrollo</p>
+        <p><strong>✨ Versión JSON - Sin complicaciones, máxima simplicidad</strong></p>
+    </div>
+</body>
+</html>

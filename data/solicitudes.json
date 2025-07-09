@@ -1,0 +1,48 @@
+{
+  "solicitudes": [
+    {
+      "id": 1,
+      "usuario_id": 3,
+      "proyecto_id": 1,
+      "tipo": "dias_libres",
+      "fecha_inicio": "2024-03-15",
+      "fecha_fin": "2024-03-18",
+      "motivo": "Vacaciones de Semana Santa",
+      "estado": "aprobada",
+      "fecha_solicitud": "2024-03-01T09:00:00",
+      "aprobado_por": 1,
+      "fecha_aprobacion": "2024-03-02T14:30:00"
+    },
+    {
+      "id": 2,
+      "usuario_id": 2,
+      "proyecto_id": 2,
+      "tipo": "refuerzo",
+      "fecha_inicio": "2024-04-01",
+      "fecha_fin": "2024-04-30",
+      "motivo": "Necesitamos acelerar el desarrollo del módulo de reportes",
+      "estado": "pendiente",
+      "fecha_solicitud": "2024-03-25T16:45:00",
+      "desarrolladores_solicitados": [
+        4,
+        5
+      ],
+      "horas_adicionales": 40
+    },
+    {
+      "id": 3,
+      "usuario_id": 4,
+      "proyecto_id": 2,
+      "tipo": "cambio_asignacion",
+      "fecha_inicio": "2024-05-01",
+      "fecha_fin": "2024-05-31",
+      "motivo": "Reducir dedicación por compromisos en otro proyecto",
+      "estado": "rechazada",
+      "fecha_solicitud": "2024-04-20T11:15:00",
+      "nuevo_porcentaje": 60,
+      "rechazado_por": 1,
+      "fecha_rechazo": "2024-04-22T09:00:00",
+      "motivo_rechazo": "Período crítico del proyecto, no es posible reducir dedicación"
+    }
+  ]
+}
